@@ -1,0 +1,12 @@
+[package]
+name = "aoc2020"
+version = "0.1.0"
+authors = ["johannst <johannes.stoelp@gmail.com>"]
+edition = "2018"
+default-run = "aoc2020"
+
+#[lib]
+#name = "aoc20"
+#path = "src/lib.rs"
+
+[dependencies]
