@@ -1,7 +1,7 @@
-use aoc20::read_input;
+use aoc20::read_input_to_string;
 
 fn parse_input() -> Vec<usize> {
-    read_input("day01")
+    read_input_to_string("day01")
         .split_whitespace()
         .map(|input| input.parse::<usize>().expect("Input is not a number!"))
         .collect()
