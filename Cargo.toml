@@ -10,3 +10,4 @@ name = "aoc20"
 path = "src/lib.rs"
 
 [dependencies]
+regex = "1.4.2"
