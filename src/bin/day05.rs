@@ -67,20 +67,17 @@ fn challenge2() -> io::Result<u32> {
         v
     };
 
-    // By challenge definition we must have more boarding passes.
-    assert!(bp_uids.len() > 2);
-
-    let mut prev_uid = bp_uids[0];
-    for &uid in &bp_uids[1..] {
-        if uid - prev_uid == 2 {
-            return Ok(uid - 1);
-        }
-        prev_uid = uid;
-    }
-    Err(io::Error::new(
-        io::ErrorKind::Other,
-        "No free boarding pass uid found",
-    ))
+    Ok(bp_uids
+        .windows(2)
+        // From challenge description:
+        //   Your seat wasn't at the very front or back, though; the
+        //   seats with IDs +1 and -1 from yours will be in your list.
+        .find(|w| w[1] - w[0] == 2)
+        .ok_or(io::Error::new(
+            io::ErrorKind::Other,
+            "No unused boarding pass uid found",
+        ))?[0]
+        + 1)
 }
 
 fn main() -> io::Result<()> {
