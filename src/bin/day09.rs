@@ -6,7 +6,7 @@ use std::io;
 /// - summands must have different values
 fn is_valid(curr_val: usize, prev_vals: &[usize]) -> bool {
     for (i, n1) in prev_vals.iter().enumerate() {
-        for n2 in prev_vals.iter().skip(i) {
+        for n2 in prev_vals.iter().skip(i + 1) {
             if n1 == n2 {
                 continue;
             }
