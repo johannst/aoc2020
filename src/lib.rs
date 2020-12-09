@@ -15,7 +15,6 @@ pub fn read_input_to_string(day: &str) -> String {
 
 pub fn input_bufreader(day: &str) -> BufReader<File> {
     let path = format!("{}/input/{}", std::env!("CARGO_MANIFEST_DIR"), day);
-
     match File::open(&path) {
         Ok(input) => BufReader::new(input),
         Err(e) => {
