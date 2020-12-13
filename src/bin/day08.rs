@@ -60,17 +60,17 @@ impl HandHeld {
 
         let op = instr.next().ok_or(io::Error::new(
             io::ErrorKind::InvalidData,
-            "Not OPCODE in input",
+            "No OPCODE in input",
         ))?;
 
         let arg = instr
             .next()
             .ok_or(io::Error::new(
                 io::ErrorKind::InvalidData,
-                "Not ARGUMENT in input",
+                "No ARGUMENT in input",
             ))?
             .parse::<isize>()
-            .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "Not ARGUMENT"))?;
+            .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "ARGUMENT is not a number"))?;
 
         Ok((op, arg))
     }
