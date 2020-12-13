@@ -141,8 +141,16 @@ fn parse_input() -> (WaitingArea, (i32, i32)) {
         })
         .collect();
 
-    let rows = a.keys().map(|k| k.0).max().expect("Waiting area is not empty");
-    let cols = a.keys().map(|k| k.1).max().expect("Waiting area is not empty");
+    let rows = a
+        .keys()
+        .map(|k| k.1)
+        .max()
+        .expect("Waiting area is not empty");
+    let cols = a
+        .keys()
+        .map(|k| k.0)
+        .max()
+        .expect("Waiting area is not empty");
 
     (a, (rows, cols))
 }
